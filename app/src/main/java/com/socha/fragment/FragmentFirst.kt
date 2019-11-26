@@ -26,7 +26,6 @@ class FirstFrament :
     {
         return inflater.inflate(R.layout.fragment_first,container, false)
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view,
             savedInstanceState)
@@ -45,6 +44,25 @@ class FirstFrament :
                                       Int)
                 {
                     communicationViewModel!!.setName(charSequence.toString())
+                }
+                override fun afterTextChanged(editable: Editable) {
+                }
+            })
+        val kampusEditText = view.findViewById<TextInputEditText>(R.id.textInputTextKampus)
+        kampusEditText.addTextChangedListener(
+            object :
+                TextWatcher
+            {
+                override fun beforeTextChanged(
+                    charSequence: CharSequence, i: Int, i1: Int, i2: Int) {
+                }
+                override fun
+                        onTextChanged(charSequence: CharSequence,
+                                      i: Int, i1: Int,
+                                      i2:
+                                      Int)
+                {
+                    communicationViewModel!!.setKampus(charSequence.toString())
                 }
                 override fun afterTextChanged(editable: Editable) {
                 }

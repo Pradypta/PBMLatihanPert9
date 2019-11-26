@@ -7,9 +7,9 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-class SecondFragment : Fragment() {
+class ThirdFragment : Fragment() {
     private var communicationViewModel: CommunicationViewModel? = null
-    private var txtName: TextView? = null
+    private var txtKampus: TextView? = null
     override fun onCreate(savedInstanceState: Bundle?)
     {
         super.onCreate(savedInstanceState)
@@ -20,19 +20,19 @@ class SecondFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View?
     {
-        return inflater.inflate(R.layout.fragment_second,
+        return inflater.inflate(R.layout.fragment_third,
             container, false)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)
     {
         super.onViewCreated(view, savedInstanceState)
-        txtName = view.findViewById(R.id.textViewName)
-        communicationViewModel!!.name.observe(requireActivity(),
-            Observer{ s -> txtName!!.text = s })
+        txtKampus= view.findViewById(R.id.textViewKampus)
+        communicationViewModel!!.kampus.observe(requireActivity(),
+            Observer{ s -> txtKampus!!.text = s })
     }
     companion object {
-        fun newInstance(): SecondFragment {
-            return SecondFragment()
+        fun newInstance(): ThirdFragment {
+            return ThirdFragment()
         }
     }
 }
